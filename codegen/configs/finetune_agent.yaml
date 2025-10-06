@@ -1,0 +1,47 @@
+defaults:
+  - training
+  - _self_
+
+sft:
+  seed: 100
+  max_seq_length: 4096
+  num_train_epochs: 1
+  logging_steps: 1
+  log_level: "info"
+  logging_strategy: "steps"
+  eval_strategy: "epoch"
+  save_strategy: "epoch"
+  bf16: True
+  fp16: False
+  packing: False
+  learning_rate: 0.00001
+  lr_scheduler_type: "cosine"
+  weight_decay: 0.0
+  warmup_ratio: 0.1
+  max_grad_norm: 1.0
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 32
+  eval_accumulation_steps: 8
+  gradient_checkpointing: True
+  run_name: sft_${uuid6:}
+  output_dir: ${oc.env:CODEGEN_ROOT}/models/${data.train_type}/${sft.run_name}
+  eval_on_start: True
+  save_safetensors: True
+  save_on_each_node: True
+  fsdp: full_shard
+  remove_unused_columns: False
+model:
+  model_name_or_path: "Qwen/Qwen3-14B" # "meta-llama/Llama-3.1-8B-Instruct"
+  tokenizer_path: "Qwen/Qwen3-14B" # "meta-llama/Llama-3.1-8B-Instruct"
+  use_reentrant: False
+  use_flash_attn: False
+data:
+  dataset_name: # Add in dataset name 
+  add_special_tokens: False
+  append_concat_token: False
+  train_type: "sft"
+  temperature: 1
+  # num_train_examples: 100
+  test_split: 0.2
+

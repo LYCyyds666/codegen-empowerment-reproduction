@@ -1,0 +1,36 @@
+seed: 0
+max_steps: 30
+num_problems: 0 # 100
+num_process_evaluate: 12
+timeout: 6
+debug: False
+human:
+  max_tokens: 3000
+  reasoning_length: 2000
+  generator:
+    model_name: google/gemma-3-27b-it # meta-llama/Meta-Llama-3.1-70B-Instruct
+    served: False
+    # ports: [ 8001 ]
+    # ip: 100.83.210.2
+    llm:
+      tensor_parallel_size: 8
+      pipeline_parallel_size: 1
+      max_model_len: 8000
+      enable_prefix_caching: True
+    # sampling:
+    #   temperature: 0.2
+    #   top_p: 0.95
+    #   max_tokens: 2000
+    #   logprobs: 1
+    #   detokenize: False
+    sampling:
+      temperature: 0.7
+      top_p: 0.8
+      max_tokens: 2000
+      logprobs: 1
+      detokenize: False
+benchmark:
+  not_fast: false
+  release_version: "release_v6"
+  start_date: "2024-08-01"
+  override_benchmark_path: # Add in dataset name

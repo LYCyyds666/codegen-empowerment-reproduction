@@ -1,0 +1,53 @@
+name: codegen
+channels:
+- conda-forge
+- nodefaults
+dependencies:
+- python 3.11.*
+- pip 24.2.*
+- ncurses 6.4.*
+- openssl 3.0.*
+- readline 8.2.*
+- sqlite 3.45.*
+- tk >=8.6.13,<9
+- wheel 0.43.0.*
+- cudnn >=9.8.0.87,<10
+- cuda-nvcc >=11.8
+- ninja >=1.12.1,<2
+- numpy <2.0
+- mistralai >=0.4.2,<0.5
+- setuptools >=78.1.0,<79
+- pip
+- pip:
+  - --extra-index-url https://developer.nvidia.com/flashattention-wheels
+  - torch>=2.6.0, <3
+  - accelerate==1.6.0
+  - trl>=0.16.1, <0.17
+  - blobfile>=3.0.0, <4
+  - vllm>=0.5
+  - flash-attn>=2.7
+  - attrs==23.2.0
+  - lm-format-enforcer==0.10.11
+  - matplotlib==3.9.2
+  - mistral-common>=1.5.4, <2
+  - mistralai
+  - openai==1.68.2
+  - pandas==2.2.2
+  - pebble
+  - peft==0.14.0
+  - proto-plus==1.23.0
+  - protobuf==4.25.3
+  - py-cpuinfo==9.0.0
+  - tiktoken==0.7.0
+  - numpy
+  - tqdm==4.67.1
+  - transformers>=4.51.0, <5
+  - wandb==0.18.1
+  - plotly==6.0.0
+  - pyyaml>=6.0.2, <7
+  - bitsandbytes==0.45.1
+  - gspread==6.2.0
+  - oauth2client==4.1.3
+  - -e .
+  - -e LiveCodeBench
+

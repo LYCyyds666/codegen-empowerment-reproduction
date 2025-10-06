@@ -1,0 +1,20 @@
+seed: 0
+head_port: 9530
+assistant_name: untrained
+assistant:
+  max_tokens: 20
+  generator:
+    model_name: "meta-llama/Llama-3.1-8B-Instruct" 
+    tokenizer_path: "meta-llama/Llama-3.1-8B-Instruct"
+    served: True
+    ports: [8000]
+    llm:
+      tensor_parallel_size: 2
+      max_model_len: 8000
+      enable_prefix_caching: True
+    sampling:
+      temperature: 0.6
+      top_p: 0.9
+      max_tokens: 2000
+      logprobs: 1
+      detokenize: False
