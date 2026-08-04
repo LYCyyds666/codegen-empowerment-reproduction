@@ -4,10 +4,6 @@ from typing import Optional
 from hydra.core.config_store import ConfigStore
 import random
 import string
-from codegen.policies.base import PolicyConfig
-from codegen.evaluate.base import BenchmarkConfig
-from codegen.empowerment.base import EmpowermentConfig
-from codegen.generators.base import GeneratorConfig
 
 
 # Define and parse arguments.
